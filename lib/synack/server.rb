@@ -30,13 +30,9 @@ module Synack
 
     # Instance methods =============================================================================
 
-    def sanitize(message)
-      message && message.gsub(/[^0-9A-z\.\-\'\, ]/, '_')
-    end
-
-    def say(message)
+    def say(message, passthrough = false)
       puts message
-      system "/Applications/terminal-notifier.app/Contents/MacOS/terminal-notifier -message \"#{sanitize(message)}\""
+      system "/Applications/terminal-notifier.app/Contents/MacOS/terminal-notifier #{message}"
     end
 
   end
